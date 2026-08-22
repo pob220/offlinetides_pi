@@ -40,6 +40,19 @@ grep -q '<name> OfflineTides </name>' "$metadata"
 grep -q '<api-version> 1.21 </api-version>' "$metadata"
 grep -q '<source> https://github.com/pob220/offlinetides_pi </source>' "$metadata"
 grep -q '<tarball-url>' "$metadata"
+case "${OCPN_TARGET:-}" in
+  noble) expected_target=ubuntu-gtk3-x86_64 ;;
+  jammy) expected_target=ubuntu-wx32-x86_64 ;;
+  trixie|bookworm) expected_target=debian-x86_64 ;;
+  *)
+    echo "No expected OpenCPN ABI target is defined for ${OCPN_TARGET:-unset}" >&2
+    exit 1
+    ;;
+esac
+if ! grep -q "<target>${expected_target}</target>" "$metadata"; then
+  echo "Generated metadata does not advertise expected target ${expected_target}" >&2
+  exit 1
+fi
 if grep -q 'pob220/offlinetides-alpha' "$metadata"; then
   echo "Generated metadata must retain publication placeholders" >&2
   exit 1
