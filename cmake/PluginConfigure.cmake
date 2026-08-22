@@ -225,7 +225,7 @@ message(
     "${CMLOC}BUILD_ENV: $ENV{BUILD_ENV}, BUILD_ENV_TEMP ${BUILD_ENV_TEMP}, OCPN_TARGET: $ENV{OCPN_TARGET}"
 )
 message(STATUS "${CMLOC}Doing build_gtk3: $ENV{BUILD_GTK3}")
-if ("$ENV{BUILD_GTK3}" STREQUAL "TRUE"
+if (("$ENV{BUILD_GTK3}" STREQUAL "TRUE" OR "$ENV{BUILD_GTK3}" STREQUAL "ON")
     AND (("${BUILD_ENV_TEMP}" STREQUAL "UBUNTU" AND NOT "$ENV{OCPN_TARGET}"
                                                     STREQUAL "jammy")
          OR "$ENV{OCPN_TARGET}" STREQUAL "buster-armhf")
