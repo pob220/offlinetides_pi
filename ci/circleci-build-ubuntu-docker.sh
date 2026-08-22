@@ -8,6 +8,7 @@ git submodule update --init --recursive
 
 test -n "${DOCKER_IMAGE:-}"
 test -n "${OCPN_TARGET:-}"
+test -n "${BUILD_ENV:-}"
 
 circle_sha=${CIRCLE_SHA1:-}
 if [[ -z "$circle_sha" ]]; then
@@ -20,6 +21,9 @@ docker build --build-arg "BASE_IMAGE=${DOCKER_IMAGE}" \
   -t offlinetides-linux-build ci
 docker run --rm \
   -e "OCPN_TARGET=${OCPN_TARGET}" \
+  -e "BUILD_ENV=${BUILD_ENV}" \
+  -e "BUILD_GTK3=${BUILD_GTK3:-true}" \
+  -e "WX_VER=${WX_VER:-32}" \
   -e "CIRCLE_SHA1=${circle_sha}" \
   -e "CMAKE_BUILD_PARALLEL_LEVEL=${CMAKE_BUILD_PARALLEL_LEVEL:-3}" \
   -v "${PWD}:/src:rw" \
