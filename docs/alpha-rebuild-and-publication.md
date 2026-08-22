@@ -88,15 +88,18 @@ The ordinary CircleCI workflow uses `run_workflow_deploy=false`. To prepare a
 publication candidate, trigger the `alpha` branch with
 `run_workflow_deploy=true`. The complete release matrix must pass before
 `hold-for-alpha-approval` becomes available. Approval then permits only the
-`deploy-alpha` job to use the restricted `offlinetides-deployment` context.
+`deploy-alpha` job to use the established, access-controlled
+`xgrib-deployment` context. This reuses its Cloudsmith credential without
+copying or exposing the key.
 
 External prerequisites, deliberately not stored in source:
 
 - the `pob220/offlinetides_pi` project followed by the CircleCI GitHub integration,
   with machine-executor builds enabled;
 - a public Cloudsmith raw repository named `pob220/offlinetides-alpha`;
-- an organization CircleCI context named `offlinetides-deployment`, restricted
-  to this project and containing only `CLOUDSMITH_API_KEY`;
+- the existing organization CircleCI context named `xgrib-deployment`, allowed
+  for both the xGRIB and OfflineTides projects and containing only
+  `CLOUDSMITH_API_KEY`;
 - explicit human approval after inspecting all retained target evidence.
 
 The deployment script independently checks the `alpha` branch, the explicit

@@ -8,7 +8,7 @@ deploy=$source_dir/ci/deploy-alpha-artifacts.sh
 grep -q 'default: false' "$config"
 grep -q 'only: alpha' "$config"
 grep -q 'hold-for-alpha-approval' "$config"
-grep -q 'context: offlinetides-deployment' "$config"
+grep -q 'context: xgrib-deployment' "$config"
 grep -q 'CIRCLE_BRANCH:-' "$deploy"
 grep -q 'OFFLINETIDES_PUBLICATION_APPROVED' "$deploy"
 grep -q 'CLOUDSMITH_API_KEY' "$deploy"

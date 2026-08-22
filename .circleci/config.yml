@@ -146,6 +146,6 @@ workflows:
             - release-ubuntu24.04-x86_64
           filters: *alpha-only
       - deploy-alpha:
-          context: offlinetides-deployment
+          context: xgrib-deployment
           requires: [hold-for-alpha-approval]
           filters: *alpha-only
