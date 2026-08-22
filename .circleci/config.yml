@@ -1,0 +1,151 @@
+version: 2.1
+
+parameters:
+  run_workflow_deploy:
+    type: boolean
+    default: false
+
+commands:
+  retain-linux-evidence:
+    steps:
+      - run:
+          name: Prepare retained evidence
+          when: always
+          command: |
+            mkdir -p artifacts test-results
+            if test -d build/artifacts; then cp -a build/artifacts/. artifacts/; fi
+            find artifacts -type f \
+              \( -name 'ctest.xml' -o -name '*-ctest.xml' \) \
+              -exec cp -f '{}' test-results/ \;
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: artifacts
+      - persist_to_workspace:
+          root: .
+          paths: [artifacts]
+
+jobs:
+  linux-catalogue:
+    parameters:
+      target: {type: string}
+      image: {type: string}
+      build_env: {type: string}
+      dockerfile: {type: string, default: ci/Dockerfile.linux}
+    machine:
+      image: ubuntu-2404:current
+    resource_class: medium
+    environment:
+      OCPN_TARGET: << parameters.target >>
+      DOCKER_IMAGE: << parameters.image >>
+      BUILD_ENV: << parameters.build_env >>
+      DOCKERFILE: << parameters.dockerfile >>
+      BUILD_GTK3: "true"
+      WX_VER: "32"
+      CMAKE_BUILD_PARALLEL_LEVEL: "3"
+    steps:
+      - checkout
+      - run:
+          name: Initialise pinned dependencies
+          command: git submodule update --init --recursive
+      - run: chmod a+x ci/*.sh
+      - run:
+          name: Clean build, test, package and validate
+          command: ci/circleci-build-ubuntu-docker.sh
+          no_output_timeout: 30m
+      - retain-linux-evidence
+
+  deploy-alpha:
+    docker:
+      - image: cimg/python:3.13
+    resource_class: small
+    environment:
+      OFFLINETIDES_PUBLICATION_APPROVED: "yes"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install deployment client
+          command: python -m pip install --user cloudsmith-cli
+      - run:
+          name: Upload reviewed OfflineTides Alpha artifacts
+          command: bash ci/deploy-alpha-artifacts.sh
+
+workflows:
+  validate:
+    when:
+      not: << pipeline.parameters.run_workflow_deploy >>
+    jobs:
+      - linux-catalogue:
+          name: debian13-x86_64
+          target: trixie
+          image: debian:trixie
+          build_env: debian
+          filters: &validation-filters
+            tags:
+              ignore: /.*/
+      - linux-catalogue:
+          name: debian12-x86_64
+          target: bookworm
+          image: debian:bookworm
+          build_env: debian
+          filters: *validation-filters
+      - linux-catalogue:
+          name: ubuntu22.04-x86_64
+          target: jammy
+          image: ubuntu:22.04
+          build_env: ubuntu
+          dockerfile: ci/Dockerfile.jammy
+          filters: *validation-filters
+      - linux-catalogue:
+          name: ubuntu24.04-x86_64
+          target: noble
+          image: ubuntu:24.04
+          build_env: ubuntu
+          filters: *validation-filters
+
+  deploy_reviewed_alpha:
+    when: << pipeline.parameters.run_workflow_deploy >>
+    jobs:
+      - linux-catalogue:
+          name: release-debian13-x86_64
+          target: trixie
+          image: debian:trixie
+          build_env: debian
+          filters: &alpha-only
+            branches:
+              only: alpha
+            tags:
+              ignore: /.*/
+      - linux-catalogue:
+          name: release-debian12-x86_64
+          target: bookworm
+          image: debian:bookworm
+          build_env: debian
+          filters: *alpha-only
+      - linux-catalogue:
+          name: release-ubuntu22.04-x86_64
+          target: jammy
+          image: ubuntu:22.04
+          build_env: ubuntu
+          dockerfile: ci/Dockerfile.jammy
+          filters: *alpha-only
+      - linux-catalogue:
+          name: release-ubuntu24.04-x86_64
+          target: noble
+          image: ubuntu:24.04
+          build_env: ubuntu
+          filters: *alpha-only
+      - hold-for-alpha-approval:
+          type: approval
+          requires:
+            - release-debian13-x86_64
+            - release-debian12-x86_64
+            - release-ubuntu22.04-x86_64
+            - release-ubuntu24.04-x86_64
+          filters: *alpha-only
+      - deploy-alpha:
+          context: offlinetides-deployment
+          requires: [hold-for-alpha-approval]
+          filters: *alpha-only

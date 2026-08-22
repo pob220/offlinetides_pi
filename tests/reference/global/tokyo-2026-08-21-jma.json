@@ -1,0 +1,9 @@
+{
+  "schema_version":1,
+  "station":{"id":"jp-tokyo","name":"Tokyo (Harumi)","latitude":35.65,"longitude":139.767},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Japan Meteorological Agency","source_url":"https://www.data.jma.go.jp/kaiyou/db/tide/suisan/suisan.php?LV=DL&S_HILO=on&de=31&ds=17&me=08&ms=08&stn=TK&ye=2026&ys=2026","source_title":"Tokyo high and low water table","time_basis":"JST (UTC+9)","vertical_datum_id":"chart-datum","vertical_datum_name":"JMA tide-table datum (DL)","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; source reports centimetres above tide-table datum."},
+  "events":[
+    {"type":"low","utc":"2026-08-20T19:37:00Z","unix_seconds":1787254620,"height_m":0.79},
+    {"type":"high","utc":"2026-08-21T12:14:00Z","unix_seconds":1787314440,"height_m":1.71}
+  ]
+}

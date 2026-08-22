@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"au-darwin","name":"Darwin","latitude":-12.4667,"longitude":130.85},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Australian Bureau of Meteorology via Northern Territory Government","source_url":"https://nt.gov.au/__data/assets/pdf_file/0007/1574143/darwin-monthly-2026.pdf","source_title":"Tidal predictions for Darwin, August 2026","time_basis":"ACST (UTC+9:30)","vertical_datum_id":"chart-datum","vertical_datum_name":"Lowest Astronomical Tide prediction datum","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; consult the linked official table."},
+  "events":[
+    {"type":"low","utc":"2026-08-20T19:00:00Z","unix_seconds":1787252400,"height_m":3.80},
+    {"type":"high","utc":"2026-08-21T00:34:00Z","unix_seconds":1787272440,"height_m":5.30},
+    {"type":"low","utc":"2026-08-21T08:17:00Z","unix_seconds":1787300220,"height_m":2.58},
+    {"type":"high","utc":"2026-08-21T14:54:00Z","unix_seconds":1787324040,"height_m":5.06}
+  ]
+}

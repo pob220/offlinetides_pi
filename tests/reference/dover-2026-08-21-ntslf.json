@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "station": {"id": "uk-dover", "name": "Dover", "latitude": 51.1165, "longitude": 1.3181},
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/tides/uk-network/tidepred?port=Dover",
+    "source_title": "NTSLF high and low water predictions for Dover",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Dover Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-21T13:40:31Z",
+    "sample_date": "2026-08-21",
+    "redistribution_note": "One-day factual verification sample; consult the linked live publication for the full table."
+  },
+  "events": [
+    {"type": "high", "utc": "2026-08-21T04:38:00Z", "unix_seconds": 1787287080, "height_m": 5.31},
+    {"type": "low", "utc": "2026-08-21T11:24:00Z", "unix_seconds": 1787311440, "height_m": 2.42},
+    {"type": "high", "utc": "2026-08-21T17:12:00Z", "unix_seconds": 1787332320, "height_m": 5.25}
+  ]
+}

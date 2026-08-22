@@ -1,0 +1,83 @@
+{
+  "schema": "xtidal-chart-datum-authority-overrides",
+  "schema_version": 1,
+  "policy": "Replace nearby inherited offsets only where an authority publishes an explicit MSL-to-Chart-Datum relationship. These are authoring inputs, not runtime station patches.",
+  "retrieved_utc": "2026-08-22T00:00:00Z",
+  "overrides": [
+    {
+      "id": "au-darwin-authority-control",
+      "name": "Darwin",
+      "country": "Australia",
+      "latitude": -12.4667,
+      "longitude": 130.85,
+      "msl_above_chart_datum_m": 4.24,
+      "source_datum": "LAT",
+      "exclusion_radius_km": 10.0,
+      "source": "Australian Bureau of Meteorology via Northern Territory Government",
+      "source_url": "https://nt.gov.au/__data/assets/pdf_file/0007/1574143/darwin-monthly-2026.pdf",
+      "source_title": "Tidal predictions for Darwin, August 2026",
+      "evidence": "Official table identifies LAT and MSL 4.24 m",
+      "confidence": 10
+    },
+    {
+      "id": "nz-auckland-linz-2026",
+      "name": "Auckland",
+      "country": "New Zealand",
+      "latitude": -36.85,
+      "longitude": 174.7667,
+      "msl_above_chart_datum_m": 1.94,
+      "source_datum": "LAT",
+      "exclusion_radius_km": 10.0,
+      "source": "Toitū Te Whenua Land Information New Zealand",
+      "source_url": "https://www.linz.govt.nz/guidance/marine-information/tide-prediction-guidance/standard-port-tidal-levels",
+      "source_title": "Standard port tidal levels",
+      "evidence": "Authority table publishes MSL 1.94 m above Auckland Chart Datum",
+      "confidence": 10
+    },
+    {
+      "id": "nz-wellington-linz-2026",
+      "name": "Wellington",
+      "country": "New Zealand",
+      "latitude": -41.2833,
+      "longitude": 174.7833,
+      "msl_above_chart_datum_m": 1.15,
+      "source_datum": "LAT",
+      "exclusion_radius_km": 10.0,
+      "source": "Toitū Te Whenua Land Information New Zealand",
+      "source_url": "https://www.linz.govt.nz/guidance/marine-information/tide-prediction-guidance/standard-port-tidal-levels",
+      "source_title": "Standard port tidal levels",
+      "evidence": "Authority table publishes MSL 1.15 m above Wellington Chart Datum",
+      "confidence": 10
+    },
+    {
+      "id": "br-rio-ilha-fiscal-chm-2026",
+      "name": "Rio de Janeiro, Ilha Fiscal",
+      "country": "Brazil",
+      "latitude": -22.8966667,
+      "longitude": -43.1666667,
+      "msl_above_chart_datum_m": 0.73,
+      "source_datum": "AUTHORITY_CHART_DATUM",
+      "exclusion_radius_km": 15.0,
+      "source": "Brazilian Navy Hydrographic Centre (CHM)",
+      "source_url": "https://www.marinha.mil.br/chm/sites/www.marinha.mil.br.chm/files/dados_de_mare/40%20-%20PORTO%20DO%20RIO%20DE%20JANEIRO%20-%20I%20FISCAL%20-%20130%20-%20132.pdf",
+      "source_title": "Porto do Rio de Janeiro - Ilha Fiscal 2026",
+      "evidence": "Official harmonic prediction table publishes Nível Médio 0.73 m",
+      "confidence": 10
+    },
+    {
+      "id": "is-reykjavik-icg-2026",
+      "name": "Reykjavík",
+      "country": "Iceland",
+      "latitude": 64.15,
+      "longitude": -21.85,
+      "msl_above_chart_datum_m": 2.182,
+      "source_datum": "MLWS",
+      "exclusion_radius_km": 15.0,
+      "source": "Icelandic Coast Guard",
+      "source_url": "https://www.lhg.is/2025/11/27/ny-utgafa-sjavarfallatoflur-2026/",
+      "source_title": "New edition of Tide Tables 2026",
+      "evidence": "Authority publishes long-term mean sea level 2.182 m above Icelandic hydrographic zero",
+      "confidence": 10
+    }
+  ]
+}

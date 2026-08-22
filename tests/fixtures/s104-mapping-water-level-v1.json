@@ -1,0 +1,46 @@
+{
+  "fixture": "xtidal-s104-semantic-mapping",
+  "fixture_version": 1,
+  "target_standard": {
+    "product": "IHO S-104 Water Level Information for Surface Navigation",
+    "edition": "2.0.0",
+    "s100_edition": "5.2.0"
+  },
+  "xtidal_forecast": {
+    "schema": "xtidal-water-level-forecast",
+    "schema_version": 1,
+    "generated_utc": "2026-08-22T10:00:00Z",
+    "geometry": {
+      "type": "Point",
+      "coordinate_reference_system": "WGS84",
+      "coordinates": [-4.63125, 53.33149]
+    },
+    "vertical_datum": {
+      "identifier": "chart-datum",
+      "name": "Local authority Chart Datum",
+      "epoch": "2026"
+    },
+    "prediction_method": "harmonic-astronomical",
+    "uncertainty_m": 0.08,
+    "package": {"id": "fixture-package-id"},
+    "source": {
+      "id": "global-observation-constrained-v0.9",
+      "name": "X-Tidal global observation-constrained harmonics"
+    },
+    "water_level_unit": "m",
+    "samples": [
+      {"valid_time_utc": "2026-08-22T10:00:00Z", "state": "known", "water_level_m": 3.41},
+      {"valid_time_utc": "2026-08-22T10:10:00Z", "state": "unknown", "water_level_m": null},
+      {"valid_time_utc": "2026-08-22T10:20:00Z", "state": "masked", "water_level_m": null}
+    ]
+  },
+  "mapping_assertions": {
+    "geometry": "pointCoverageWgs84",
+    "time": "utcValidityTime",
+    "water_level": "metres",
+    "vertical_datum": "requiresAuthorityIdentifierMapping",
+    "method": "mathematicallyPredicted",
+    "unknown_and_masked": "editionDefinedMissingValueNotZero"
+  },
+  "is_s104_encoded_product": false
+}

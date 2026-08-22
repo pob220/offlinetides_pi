@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "station": {
+    "id": "au-darwin",
+    "name": "Darwin",
+    "latitude": -12.4667,
+    "longitude": 130.85
+  },
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "Tide-Forecast.com",
+    "source_url": "https://www.tide-forecast.com/tide/Darwin-Australia/tide-times",
+    "source_title": "Tide Times for Darwin, Friday 21 August 2026",
+    "time_basis": "ACST (UTC+9:30)",
+    "vertical_datum_id": "mean-lower-low-water",
+    "vertical_datum_name": "Mean Lower Low Water",
+    "comparison_mode": "event_time_and_tidal_range",
+    "sample_date": "2026-08-21",
+    "retrieved_utc": "2026-08-21T21:58:00Z",
+    "redistribution_note": "Minimal factual one-day sample; consult the linked publication for the full table."
+  },
+  "events": [
+    {
+      "type": "low",
+      "utc": "2026-08-20T19:21:00Z",
+      "unix_seconds": 1787253660,
+      "height_m": 3.61
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-21T00:40:00Z",
+      "unix_seconds": 1787272800,
+      "height_m": 5.31
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-21T08:03:00Z",
+      "unix_seconds": 1787299380,
+      "height_m": 2.36
+    }
+  ]
+}

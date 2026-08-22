@@ -1,0 +1,13 @@
+{
+  "schema_version":1,
+  "station":{"id":"br-rio-de-janeiro","name":"Rio de Janeiro, Ilha Fiscal","latitude":-22.8966667,"longitude":-43.1666667},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Brazilian Navy Hydrographic Centre (CHM)","source_url":"https://www.marinha.mil.br/chm/sites/www.marinha.mil.br.chm/files/dados_de_mare/40%20-%20PORTO%20DO%20RIO%20DE%20JANEIRO%20-%20I%20FISCAL%20-%20130%20-%20132.pdf","source_title":"Porto do Rio de Janeiro - Ilha Fiscal 2026","time_basis":"BRT (UTC-3)","vertical_datum_id":"chart-datum","vertical_datum_name":"Local nautical-chart prediction datum","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample from the official table; full publication is not bundled."},
+  "events":[
+    {"type":"low","utc":"2026-08-21T07:08:00Z","unix_seconds":1787296080,"height_m":0.51},
+    {"type":"high","utc":"2026-08-21T11:23:00Z","unix_seconds":1787311380,"height_m":0.82},
+    {"type":"low","utc":"2026-08-21T13:57:00Z","unix_seconds":1787320620,"height_m":0.75},
+    {"type":"high","utc":"2026-08-21T16:55:00Z","unix_seconds":1787331300,"height_m":0.86},
+    {"type":"low","utc":"2026-08-21T20:12:00Z","unix_seconds":1787343120,"height_m":0.71},
+    {"type":"high","utc":"2026-08-21T23:08:00Z","unix_seconds":1787353680,"height_m":0.80}
+  ]
+}

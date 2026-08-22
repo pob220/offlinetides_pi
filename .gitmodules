@@ -1,0 +1,6 @@
+[submodule "third_party/environmental-grib-generator"]
+	path = third_party/environmental-grib-generator
+	url = https://github.com/pob220/environmental-grib-generator.git
+[submodule "third_party/opencpn-libs"]
+	path = third_party/opencpn-libs
+	url = https://github.com/OpenCPN/opencpn-libs.git

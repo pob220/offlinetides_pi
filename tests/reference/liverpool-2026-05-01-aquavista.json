@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "station": {
+    "id": "uk-liverpool-gladstone",
+    "name": "Liverpool (Gladstone Dock)",
+    "latitude": 53.449694,
+    "longitude": -3.018139
+  },
+  "reference": {
+    "kind": "published_high_water_forecast",
+    "publisher": "Aquavista Watersides & Marinas",
+    "source_url": "https://www.aquavista.com/media/rrkjm2kq/tide-times-2025_glasson_for-web.pdf",
+    "source_title": "Glasson Waterside & Marina Tide Times, May 2025–December 2026",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Liverpool Chart Datum",
+    "retrieved_utc": "2026-08-20",
+    "redistribution_note": "Two factual high-water events from the Liverpool (Gladstone Dock) table; consult the linked publication for the full table."
+  },
+  "events": [
+    {"type": "high", "utc": "2026-05-01T10:49:00Z", "unix_seconds": 1777632540, "height_m": 9.0},
+    {"type": "high", "utc": "2026-05-01T23:07:00Z", "unix_seconds": 1777676820, "height_m": 9.0}
+  ]
+}

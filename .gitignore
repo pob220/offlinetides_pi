@@ -1,0 +1,9 @@
+/build/
+/build-*/
+/artifacts/
+/test-results/
+/.cache/
+compile_commands.json
+*.user
+__pycache__/
+*.py[cod]

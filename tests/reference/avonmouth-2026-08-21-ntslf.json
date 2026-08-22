@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "station": {"id": "uk-avonmouth", "name": "Avonmouth", "latitude": 51.5103, "longitude": -2.7141},
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/tides/uk-network/tidepred?port=Avonmouth",
+    "source_title": "NTSLF high and low water predictions for Avonmouth",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Avonmouth Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-21T13:40:47Z",
+    "sample_date": "2026-08-21",
+    "redistribution_note": "One-day factual verification sample; consult the linked live publication for the full table."
+  },
+  "events": [
+    {"type": "low", "utc": "2026-08-21T06:06:00Z", "unix_seconds": 1787292360, "height_m": 3.58},
+    {"type": "high", "utc": "2026-08-21T12:19:00Z", "unix_seconds": 1787314740, "height_m": 9.60},
+    {"type": "low", "utc": "2026-08-21T18:29:00Z", "unix_seconds": 1787336940, "height_m": 4.01}
+  ]
+}

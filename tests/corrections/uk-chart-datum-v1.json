@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "calibration_year": 2026,
+  "grid": {
+    "west": -11.0,
+    "south": 48.0,
+    "east": 5.0,
+    "north": 62.0,
+    "spacing_deg": 0.05
+  },
+  "stations": [
+    {
+      "id": "uk-avonmouth",
+      "source_prefix": "Avonmouth, England",
+      "latitude": 51.5103,
+      "longitude": -2.7141,
+      "support_radius_km": 25.0
+    },
+    {
+      "id": "uk-dover",
+      "source_prefix": "Dover, England",
+      "latitude": 51.1165,
+      "longitude": 1.3181,
+      "support_radius_km": 30.0
+    },
+    {
+      "id": "uk-holyhead",
+      "source_prefix": "Holyhead, Wales",
+      "latitude": 53.3137,
+      "longitude": -4.6193,
+      "support_radius_km": 25.0
+    },
+    {
+      "id": "uk-liverpool-gladstone",
+      "source_prefix": "Liverpool (Gladstone Dock), England",
+      "latitude": 53.45,
+      "longitude": -3.0167,
+      "support_radius_km": 25.0
+    },
+    {
+      "id": "uk-newlyn",
+      "source_prefix": "Newlyn, England",
+      "latitude": 50.1024,
+      "longitude": -5.5417,
+      "support_radius_km": 25.0
+    },
+    {
+      "id": "uk-portsmouth",
+      "source_prefix": "Portsmouth, England",
+      "latitude": 50.8008,
+      "longitude": -1.1117,
+      "support_radius_km": 20.0
+    },
+    {
+      "id": "uk-weymouth",
+      "source_prefix": "Weymouth, England",
+      "latitude": 50.6077,
+      "longitude": -2.4486,
+      "support_radius_km": 20.0
+    }
+  ]
+}

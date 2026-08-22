@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "station": {"id": "uk-newlyn", "name": "Newlyn", "latitude": 50.1024, "longitude": -5.5417},
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/tides/uk-network/tidepred?port=Newlyn",
+    "source_title": "NTSLF high and low water predictions for Newlyn",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Newlyn Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-21T13:40:56Z",
+    "sample_date": "2026-08-21",
+    "redistribution_note": "One-day factual verification sample; consult the linked live publication for the full table."
+  },
+  "events": [
+    {"type": "low", "utc": "2026-08-21T04:25:00Z", "unix_seconds": 1787286300, "height_m": 2.21},
+    {"type": "high", "utc": "2026-08-21T10:26:00Z", "unix_seconds": 1787307960, "height_m": 4.22},
+    {"type": "low", "utc": "2026-08-21T17:00:00Z", "unix_seconds": 1787331600, "height_m": 2.35},
+    {"type": "high", "utc": "2026-08-21T23:00:00Z", "unix_seconds": 1787353200, "height_m": 4.04}
+  ]
+}

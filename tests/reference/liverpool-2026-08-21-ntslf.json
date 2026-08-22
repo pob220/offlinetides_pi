@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "station": {"id": "uk-liverpool-gladstone", "name": "Liverpool", "latitude": 53.45, "longitude": -3.0167},
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/tides/uk-network/tidepred?port=Liverpool",
+    "source_title": "NTSLF high and low water predictions for Liverpool",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Liverpool Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-21T13:40:46Z",
+    "sample_date": "2026-08-21",
+    "redistribution_note": "One-day factual verification sample; consult the linked live publication for the full table."
+  },
+  "events": [
+    {"type": "high", "utc": "2026-08-21T04:33:00Z", "unix_seconds": 1787286780, "height_m": 7.28},
+    {"type": "low", "utc": "2026-08-21T11:12:00Z", "unix_seconds": 1787310720, "height_m": 3.66},
+    {"type": "high", "utc": "2026-08-21T17:11:00Z", "unix_seconds": 1787332260, "height_m": 7.17},
+    {"type": "low", "utc": "2026-08-21T23:48:00Z", "unix_seconds": 1787356080, "height_m": 3.87}
+  ]
+}

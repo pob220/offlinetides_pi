@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"nz-auckland","name":"Auckland","latitude":-36.85,"longitude":174.7667},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Toitū Te Whenua Land Information New Zealand","source_url":"https://static.charts.linz.govt.nz/tide-tables/maj-ports/csv/Auckland%202026.csv","source_title":"Auckland 2026 daily tide predictions","time_basis":"NZST (UTC+12)","vertical_datum_id":"chart-datum","vertical_datum_name":"Auckland Chart Datum","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; consult the linked official table."},
+  "events":[
+    {"type":"high","utc":"2026-08-20T13:13:00Z","unix_seconds":1787231580,"height_m":2.9},
+    {"type":"low","utc":"2026-08-20T19:17:00Z","unix_seconds":1787253420,"height_m":1.0},
+    {"type":"high","utc":"2026-08-21T01:49:00Z","unix_seconds":1787276940,"height_m":2.8},
+    {"type":"low","utc":"2026-08-21T07:50:00Z","unix_seconds":1787298600,"height_m":1.1}
+  ]
+}

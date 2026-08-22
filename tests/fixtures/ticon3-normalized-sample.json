@@ -1,0 +1,27 @@
+{
+  "schema": "xtidal-ticon3-authoring-catalogue",
+  "schema_version": 1,
+  "source": {
+    "doi": "10.1594/PANGAEA.951610",
+    "license": "CC-BY-4.0",
+    "input_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "stations": [
+    {
+      "id": "ticon3-test",
+      "latitude": 51.0,
+      "longitude": -1.0,
+      "gauge_type": "coastal",
+      "observation_count": 10000,
+      "maximum_gap_days": 2.0,
+      "quality": {"valid_fraction": 0.95},
+      "constituents": {
+        "m2": {
+          "real_m": 1.0,
+          "imaginary_m": 0.25,
+          "complex_std_m": 0.02
+        }
+      }
+    }
+  ]
+}

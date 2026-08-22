@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"au-sydney","name":"Sydney (Fort Denison)","latitude":-33.85,"longitude":151.2333},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Australian Bureau of Meteorology","source_url":"https://www.bom.gov.au/australia/tides/print.php?aac=NSW_TP007&days=2&region=NSW&type=tide&tz=Australia%2FSydney&tz_js=AEST","source_title":"Sydney (Fort Denison) tide predictions","time_basis":"AEST (UTC+10)","vertical_datum_id":"chart-datum","vertical_datum_name":"Local prediction datum","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; consult the linked official table."},
+  "events":[
+    {"type":"high","utc":"2026-08-20T16:17:00Z","unix_seconds":1787242620,"height_m":1.10},
+    {"type":"low","utc":"2026-08-20T21:55:00Z","unix_seconds":1787262900,"height_m":0.73},
+    {"type":"high","utc":"2026-08-21T04:55:00Z","unix_seconds":1787288100,"height_m":1.47},
+    {"type":"low","utc":"2026-08-21T12:02:00Z","unix_seconds":1787313720,"height_m":0.71}
+  ]
+}

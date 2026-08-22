@@ -1,0 +1,21 @@
+{
+  "schema": "xtidal-chart-datum-stations",
+  "schema_version": 1,
+  "source_provenance": {
+    "source_url": "https://example.invalid/test-fixture",
+    "release": "synthetic",
+    "usage_terms": "Synthetic test data",
+    "input_sha256": "fixture"
+  },
+  "stations": [
+    {"record":1,"name":"LAT","latitude":50.0,"longitude":0.0,"msl_above_chart_datum_m":2.0,"source_datum":"LAT","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":2,"name":"MLLW","latitude":50.0,"longitude":0.1,"msl_above_chart_datum_m":2.0,"source_datum":"MLLW","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":3,"name":"LLWLT","latitude":50.0,"longitude":0.2,"msl_above_chart_datum_m":2.0,"source_datum":"LLWLT","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":4,"name":"NLLW","latitude":50.0,"longitude":0.3,"msl_above_chart_datum_m":2.0,"source_datum":"NLLW","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":5,"name":"MLWS","latitude":50.0,"longitude":0.4,"msl_above_chart_datum_m":2.0,"source_datum":"MLWS","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":6,"name":"MSL","latitude":50.0,"longitude":0.5,"msl_above_chart_datum_m":0.0,"source_datum":"MSL","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":7,"name":"TLT","latitude":50.0,"longitude":0.6,"msl_above_chart_datum_m":2.0,"source_datum":"TLT","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":8,"name":"Other","latitude":50.0,"longitude":0.7,"msl_above_chart_datum_m":2.0,"source_datum":"STND","country":"Test","source":"fixture","restriction":"Public Domain","confidence":10},
+    {"record":9,"name":"Permitted authority","latitude":50.0,"longitude":0.8,"msl_above_chart_datum_m":2.0,"source_datum":"STND","country":"Test","source":"fixture","restriction":"Authority factual value","authoring_permission":true,"confidence":10}
+  ]
+}

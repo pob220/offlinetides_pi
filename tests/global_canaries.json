@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "sample_date": "2026-08-21",
+  "policy": "Each canary uses a national hydrographic, meteorological or maritime authority publication. Times and heights are normalized to UTC and local Chart Datum before model comparison.",
+  "canaries": [
+    {"id":"nz-auckland","region":"South Pacific","source_prefix":"Auckland, New Zealand","latitude":-36.85,"longitude":174.7667,"reference":"global/auckland-2026-08-21-linz.json"},
+    {"id":"nz-wellington","region":"South Pacific","source_prefix":"Wellington, New Zealand","latitude":-41.2833,"longitude":174.7833,"reference":"global/wellington-2026-08-21-linz.json"},
+    {"id":"ca-halifax","region":"Northwest Atlantic","source_prefix":"Halifax, Nova Scotia","latitude":44.6667,"longitude":-63.5833,"reference":"global/halifax-2026-08-21-chs.json"},
+    {"id":"au-sydney","region":"Tasman Sea","source_prefix":"Sydney, Australia (2)","source_selection":"The bundled Royal Australian Navy station record is retained as an explicit compatibility canary; the newer Harmgen record is also reported separately in qualification notes.","latitude":-33.85,"longitude":151.2333,"reference":"global/sydney-2026-08-21-bom.json"},
+    {"id":"au-darwin","region":"Timor Sea","source_prefix":"Darwin, Australia","latitude":-12.4667,"longitude":130.85,"reference":"global/darwin-2026-08-21-bom.json"},
+    {"id":"jp-tokyo","region":"Northwest Pacific","source_prefix":"Harumi (Tokyo), Tokyo, Japan","latitude":35.65,"longitude":139.767,"reference":"global/tokyo-2026-08-21-jma.json"},
+    {"id":"nl-rotterdam","region":"Rhine-Meuse estuary","source_prefix":"Rotterdam, Netherlands","latitude":51.9167,"longitude":4.5,"reference":"global/rotterdam-2026-08-21-rws.json"},
+    {"id":"de-hamburg","region":"Elbe estuary","source_prefix":"Hamburg, Germany","latitude":53.55,"longitude":9.967,"reference":"global/hamburg-2026-08-21-bsh.json"},
+    {"id":"br-rio-de-janeiro","region":"Southwest Atlantic","source_prefix":"Rio de Janeiro, Brazil","latitude":-22.8966667,"longitude":-43.1666667,"reference":"global/rio-de-janeiro-2026-08-21-chm.json"},
+    {"id":"is-reykjavik","region":"North Atlantic","source_prefix":"Reykjavik, Iceland","latitude":64.15,"longitude":-21.85,"reference":"global/reykjavik-2026-08-21-icg.json"}
+  ]
+}

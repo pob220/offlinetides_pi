@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "station": {
+    "id": "br-rio-de-janeiro",
+    "name": "Rio de Janeiro",
+    "latitude": -22.9,
+    "longitude": -43.2
+  },
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "Tide-Forecast.com",
+    "source_url": "https://www.tide-forecast.com/tide/Rio-de-Janeiro-Brazil/tide-times",
+    "source_title": "Tide Times for Rio de Janeiro, Friday 21 August 2026",
+    "time_basis": "BRT (UTC-3)",
+    "vertical_datum_id": "mean-lower-low-water",
+    "vertical_datum_name": "Mean Lower Low Water",
+    "comparison_mode": "event_time_and_tidal_range",
+    "sample_date": "2026-08-21",
+    "retrieved_utc": "2026-08-21T22:01:00Z",
+    "redistribution_note": "Minimal factual one-day sample; consult the linked publication for the full table."
+  },
+  "events": [
+    {"type": "low", "utc": "2026-08-21T07:23:00Z", "unix_seconds": 1787296980, "height_m": 0.43},
+    {"type": "high", "utc": "2026-08-21T11:35:00Z", "unix_seconds": 1787312100, "height_m": 0.75},
+    {"type": "low", "utc": "2026-08-21T13:44:00Z", "unix_seconds": 1787319840, "height_m": 0.70},
+    {"type": "high", "utc": "2026-08-21T16:27:00Z", "unix_seconds": 1787329620, "height_m": 0.73},
+    {"type": "low", "utc": "2026-08-21T20:35:00Z", "unix_seconds": 1787344500, "height_m": 0.57},
+    {"type": "high", "utc": "2026-08-21T23:24:00Z", "unix_seconds": 1787354640, "height_m": 0.72}
+  ]
+}

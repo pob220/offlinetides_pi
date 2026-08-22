@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"ca-halifax","name":"Halifax","latitude":44.6667,"longitude":-63.5833},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Canadian Hydrographic Service","source_url":"https://www.tides.gc.ca/en/stations/00490/predictions/annual","source_title":"Halifax 00490 annual predictions","time_basis":"ADT (UTC-3)","vertical_datum_id":"chart-datum","vertical_datum_name":"Canadian chart datum at station 00490","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; official annual publication prevails if web products differ."},
+  "events":[
+    {"type":"high","utc":"2026-08-21T05:57:00Z","unix_seconds":1787291820,"height_m":1.369},
+    {"type":"low","utc":"2026-08-21T12:49:00Z","unix_seconds":1787316540,"height_m":0.741},
+    {"type":"high","utc":"2026-08-21T18:13:00Z","unix_seconds":1787335980,"height_m":1.507},
+    {"type":"low","utc":"2026-08-22T01:32:00Z","unix_seconds":1787362320,"height_m":0.572}
+  ]
+}

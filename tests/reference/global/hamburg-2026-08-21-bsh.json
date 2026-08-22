@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"de-hamburg","name":"Hamburg, St. Pauli","latitude":53.55,"longitude":9.967},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Bundesamt für Seeschifffahrt und Hydrographie","source_url":"https://gezeiten.bsh.de/hamburg_st-pauli?von=2026-08-21&bis=2026-08-21&niveau=skn&zeitzone=utc","source_data_url":"https://gezeiten.bsh.de/data/DE__508P_tides.json","source_title":"Hamburg St. Pauli official tide predictions","time_basis":"CET fixed-standard download (UTC+1), normalized to UTC","vertical_datum_id":"chart-datum","vertical_datum_name":"Seekartennull (SKN)","normalization":"Published PNP centimetres minus official SKN-above-PNP offset of 3.10 m","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal transformed factual one-day sample; BSH download conditions apply to full datasets."},
+  "events":[
+    {"type":"low","utc":"2026-08-21T03:22:00Z","unix_seconds":1787282520,"height_m":0.55},
+    {"type":"high","utc":"2026-08-21T08:44:00Z","unix_seconds":1787301840,"height_m":3.80},
+    {"type":"low","utc":"2026-08-21T15:40:00Z","unix_seconds":1787326800,"height_m":0.56},
+    {"type":"high","utc":"2026-08-21T21:06:00Z","unix_seconds":1787346360,"height_m":3.84}
+  ]
+}

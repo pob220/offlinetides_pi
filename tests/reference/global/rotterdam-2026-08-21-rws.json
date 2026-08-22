@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"nl-rotterdam","name":"Rotterdam","latitude":51.9167,"longitude":4.5},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Rijkswaterstaat","source_url":"https://getij.rws.nl/data2026/pdf/hwlw-ROTTDM-20260101-20261231.pdf","source_title":"Rotterdam high and low water predictions","time_basis":"CEST (UTC+2)","vertical_datum_id":"chart-datum","vertical_datum_name":"OLW, NAP-0.71 m","normalization":"Published centimetres NAP plus 0.71 m to OLW","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal transformed factual one-day sample; consult the linked official table."},
+  "events":[
+    {"type":"low","utc":"2026-08-21T02:22:00Z","unix_seconds":1787278920,"height_m":0.38},
+    {"type":"high","utc":"2026-08-21T08:32:00Z","unix_seconds":1787301120,"height_m":1.74},
+    {"type":"low","utc":"2026-08-21T15:17:00Z","unix_seconds":1787325420,"height_m":0.48},
+    {"type":"high","utc":"2026-08-21T21:05:00Z","unix_seconds":1787346300,"height_m":1.72}
+  ]
+}

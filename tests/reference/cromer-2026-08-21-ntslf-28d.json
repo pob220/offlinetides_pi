@@ -1,0 +1,673 @@
+{
+  "schema_version": 1,
+  "station": {
+    "id": "uk-cromer",
+    "name": "Cromer",
+    "latitude": 52.9339,
+    "longitude": 1.3035
+  },
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/tides/uk-network/tidepred?port=Cromer",
+    "source_title": "NTSLF high and low water predictions for Cromer",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Cromer Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-21T14:31:55Z",
+    "sample_start_date": "2026-08-21",
+    "sample_end_date": "2026-09-17",
+    "redistribution_note": "Small factual verification sample; consult the linked live publication for the current full table."
+  },
+  "events": [
+    {
+      "type": "low",
+      "utc": "2026-08-21T06:16:00Z",
+      "unix_seconds": 1787292960,
+      "height_m": 2.09
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-21T12:42:00Z",
+      "unix_seconds": 1787316120,
+      "height_m": 3.83
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-21T19:02:00Z",
+      "unix_seconds": 1787338920,
+      "height_m": 2.15
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-22T01:16:00Z",
+      "unix_seconds": 1787361360,
+      "height_m": 3.78
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-22T07:41:00Z",
+      "unix_seconds": 1787384460,
+      "height_m": 2.26
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-22T14:23:00Z",
+      "unix_seconds": 1787408580,
+      "height_m": 3.7
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-22T20:30:00Z",
+      "unix_seconds": 1787430600,
+      "height_m": 2.3
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-23T02:42:00Z",
+      "unix_seconds": 1787452920,
+      "height_m": 3.82
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-23T09:27:00Z",
+      "unix_seconds": 1787477220,
+      "height_m": 2.17
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-23T15:42:00Z",
+      "unix_seconds": 1787499720,
+      "height_m": 3.8
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-23T21:53:00Z",
+      "unix_seconds": 1787521980,
+      "height_m": 2.2
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-24T03:48:00Z",
+      "unix_seconds": 1787543280,
+      "height_m": 4.02
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-24T10:40:00Z",
+      "unix_seconds": 1787568000,
+      "height_m": 1.89
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-24T16:39:00Z",
+      "unix_seconds": 1787589540,
+      "height_m": 4.01
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-24T22:50:00Z",
+      "unix_seconds": 1787611800,
+      "height_m": 1.97
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-25T04:39:00Z",
+      "unix_seconds": 1787632740,
+      "height_m": 4.28
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-25T11:30:00Z",
+      "unix_seconds": 1787657400,
+      "height_m": 1.59
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-25T17:20:00Z",
+      "unix_seconds": 1787678400,
+      "height_m": 4.23
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-25T23:33:00Z",
+      "unix_seconds": 1787700780,
+      "height_m": 1.71
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-26T05:18:00Z",
+      "unix_seconds": 1787721480,
+      "height_m": 4.54
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-26T12:12:00Z",
+      "unix_seconds": 1787746320,
+      "height_m": 1.33
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-26T17:54:00Z",
+      "unix_seconds": 1787766840,
+      "height_m": 4.44
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-27T00:12:00Z",
+      "unix_seconds": 1787789520,
+      "height_m": 1.47
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-27T05:52:00Z",
+      "unix_seconds": 1787809920,
+      "height_m": 4.76
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-27T12:51:00Z",
+      "unix_seconds": 1787835060,
+      "height_m": 1.11
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-27T18:25:00Z",
+      "unix_seconds": 1787855100,
+      "height_m": 4.61
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-28T00:49:00Z",
+      "unix_seconds": 1787878140,
+      "height_m": 1.26
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-28T06:24:00Z",
+      "unix_seconds": 1787898240,
+      "height_m": 4.94
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-28T13:28:00Z",
+      "unix_seconds": 1787923680,
+      "height_m": 0.93
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-28T18:57:00Z",
+      "unix_seconds": 1787943420,
+      "height_m": 4.74
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-29T01:25:00Z",
+      "unix_seconds": 1787966700,
+      "height_m": 1.1
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-29T06:54:00Z",
+      "unix_seconds": 1787986440,
+      "height_m": 5.08
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-29T14:03:00Z",
+      "unix_seconds": 1788012180,
+      "height_m": 0.81
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-29T19:30:00Z",
+      "unix_seconds": 1788031800,
+      "height_m": 4.83
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-30T02:00:00Z",
+      "unix_seconds": 1788055200,
+      "height_m": 1.01
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-30T07:24:00Z",
+      "unix_seconds": 1788074640,
+      "height_m": 5.18
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-30T14:36:00Z",
+      "unix_seconds": 1788100560,
+      "height_m": 0.74
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-30T20:03:00Z",
+      "unix_seconds": 1788120180,
+      "height_m": 4.85
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-31T02:33:00Z",
+      "unix_seconds": 1788143580,
+      "height_m": 0.99
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-31T07:55:00Z",
+      "unix_seconds": 1788162900,
+      "height_m": 5.22
+    },
+    {
+      "type": "low",
+      "utc": "2026-08-31T15:05:00Z",
+      "unix_seconds": 1788188700,
+      "height_m": 0.75
+    },
+    {
+      "type": "high",
+      "utc": "2026-08-31T20:37:00Z",
+      "unix_seconds": 1788208620,
+      "height_m": 4.81
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-01T03:06:00Z",
+      "unix_seconds": 1788231960,
+      "height_m": 1.04
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-01T08:29:00Z",
+      "unix_seconds": 1788251340,
+      "height_m": 5.19
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-01T15:33:00Z",
+      "unix_seconds": 1788276780,
+      "height_m": 0.85
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-01T21:12:00Z",
+      "unix_seconds": 1788297120,
+      "height_m": 4.71
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-02T03:39:00Z",
+      "unix_seconds": 1788320340,
+      "height_m": 1.15
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-02T09:08:00Z",
+      "unix_seconds": 1788340080,
+      "height_m": 5.07
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-02T16:03:00Z",
+      "unix_seconds": 1788364980,
+      "height_m": 1.02
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-02T21:49:00Z",
+      "unix_seconds": 1788385740,
+      "height_m": 4.56
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-03T04:16:00Z",
+      "unix_seconds": 1788408960,
+      "height_m": 1.31
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-03T09:54:00Z",
+      "unix_seconds": 1788429240,
+      "height_m": 4.85
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-03T16:42:00Z",
+      "unix_seconds": 1788453720,
+      "height_m": 1.28
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-03T22:33:00Z",
+      "unix_seconds": 1788474780,
+      "height_m": 4.35
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-04T05:03:00Z",
+      "unix_seconds": 1788498180,
+      "height_m": 1.52
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-04T10:52:00Z",
+      "unix_seconds": 1788519120,
+      "height_m": 4.52
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-04T17:33:00Z",
+      "unix_seconds": 1788543180,
+      "height_m": 1.62
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-04T23:34:00Z",
+      "unix_seconds": 1788564840,
+      "height_m": 4.12
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-05T06:09:00Z",
+      "unix_seconds": 1788588540,
+      "height_m": 1.75
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-05T12:13:00Z",
+      "unix_seconds": 1788610380,
+      "height_m": 4.18
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-05T18:46:00Z",
+      "unix_seconds": 1788633960,
+      "height_m": 1.96
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-06T01:04:00Z",
+      "unix_seconds": 1788656640,
+      "height_m": 3.97
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-06T07:42:00Z",
+      "unix_seconds": 1788680520,
+      "height_m": 1.85
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-06T14:06:00Z",
+      "unix_seconds": 1788703560,
+      "height_m": 4.05
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-06T20:31:00Z",
+      "unix_seconds": 1788726660,
+      "height_m": 2.09
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-07T02:42:00Z",
+      "unix_seconds": 1788748920,
+      "height_m": 4.08
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-07T09:28:00Z",
+      "unix_seconds": 1788773280,
+      "height_m": 1.65
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-07T15:37:00Z",
+      "unix_seconds": 1788795420,
+      "height_m": 4.23
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-07T22:03:00Z",
+      "unix_seconds": 1788818580,
+      "height_m": 1.91
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-08T03:55:00Z",
+      "unix_seconds": 1788839700,
+      "height_m": 4.38
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-08T10:48:00Z",
+      "unix_seconds": 1788864480,
+      "height_m": 1.27
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-08T16:43:00Z",
+      "unix_seconds": 1788885780,
+      "height_m": 4.51
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-08T23:05:00Z",
+      "unix_seconds": 1788908700,
+      "height_m": 1.62
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-09T04:49:00Z",
+      "unix_seconds": 1788929340,
+      "height_m": 4.72
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-09T11:51:00Z",
+      "unix_seconds": 1788954660,
+      "height_m": 0.91
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-09T17:32:00Z",
+      "unix_seconds": 1788975120,
+      "height_m": 4.76
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-09T23:54:00Z",
+      "unix_seconds": 1788998040,
+      "height_m": 1.34
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-10T05:33:00Z",
+      "unix_seconds": 1789018380,
+      "height_m": 5.03
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-10T12:45:00Z",
+      "unix_seconds": 1789044300,
+      "height_m": 0.64
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-10T18:13:00Z",
+      "unix_seconds": 1789063980,
+      "height_m": 4.92
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-11T00:38:00Z",
+      "unix_seconds": 1789087080,
+      "height_m": 1.12
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-11T06:13:00Z",
+      "unix_seconds": 1789107180,
+      "height_m": 5.26
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-11T13:33:00Z",
+      "unix_seconds": 1789133580,
+      "height_m": 0.49
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-11T18:51:00Z",
+      "unix_seconds": 1789152660,
+      "height_m": 4.99
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-12T01:18:00Z",
+      "unix_seconds": 1789175880,
+      "height_m": 0.98
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-12T06:50:00Z",
+      "unix_seconds": 1789195800,
+      "height_m": 5.38
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-12T14:12:00Z",
+      "unix_seconds": 1789222320,
+      "height_m": 0.46
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-12T19:25:00Z",
+      "unix_seconds": 1789241100,
+      "height_m": 4.99
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-13T01:56:00Z",
+      "unix_seconds": 1789264560,
+      "height_m": 0.92
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-13T07:26:00Z",
+      "unix_seconds": 1789284360,
+      "height_m": 5.38
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-13T14:46:00Z",
+      "unix_seconds": 1789310760,
+      "height_m": 0.56
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-13T19:57:00Z",
+      "unix_seconds": 1789329420,
+      "height_m": 4.93
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-14T02:30:00Z",
+      "unix_seconds": 1789353000,
+      "height_m": 0.95
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-14T08:00:00Z",
+      "unix_seconds": 1789372800,
+      "height_m": 5.28
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-14T15:14:00Z",
+      "unix_seconds": 1789398840,
+      "height_m": 0.75
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-14T20:28:00Z",
+      "unix_seconds": 1789417680,
+      "height_m": 4.83
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-15T03:01:00Z",
+      "unix_seconds": 1789441260,
+      "height_m": 1.07
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-15T08:35:00Z",
+      "unix_seconds": 1789461300,
+      "height_m": 5.08
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-15T15:36:00Z",
+      "unix_seconds": 1789486560,
+      "height_m": 1.0
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-15T20:59:00Z",
+      "unix_seconds": 1789505940,
+      "height_m": 4.69
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-16T03:31:00Z",
+      "unix_seconds": 1789529460,
+      "height_m": 1.25
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-16T09:10:00Z",
+      "unix_seconds": 1789549800,
+      "height_m": 4.8
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-16T15:59:00Z",
+      "unix_seconds": 1789574340,
+      "height_m": 1.28
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-16T21:32:00Z",
+      "unix_seconds": 1789594320,
+      "height_m": 4.51
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-17T04:02:00Z",
+      "unix_seconds": 1789617720,
+      "height_m": 1.48
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-17T09:49:00Z",
+      "unix_seconds": 1789638540,
+      "height_m": 4.45
+    },
+    {
+      "type": "low",
+      "utc": "2026-09-17T16:27:00Z",
+      "unix_seconds": 1789662420,
+      "height_m": 1.61
+    },
+    {
+      "type": "high",
+      "utc": "2026-09-17T22:08:00Z",
+      "unix_seconds": 1789682880,
+      "height_m": 4.28
+    }
+  ]
+}

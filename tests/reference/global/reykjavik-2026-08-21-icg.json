@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "station":{"id":"is-reykjavik","name":"Reykjavík","latitude":64.15,"longitude":-21.85},
+  "reference":{"kind":"published_astronomical_forecast","publisher":"Icelandic Coast Guard","source_url":"https://www.lhg.is/wp-content/uploads/2025/11/Sjavarfallatoflur_2026_vefutgafa.pdf","source_title":"Sjávarfallatöflur 2026 - Reykjavík","time_basis":"UTC (Iceland local time)","vertical_datum_id":"chart-datum","vertical_datum_name":"Sjókortanúll","comparison_mode":"event_time_and_tidal_range","sample_date":"2026-08-21","redistribution_note":"Minimal factual one-day sample; consult the linked official table."},
+  "events":[
+    {"type":"high","utc":"2026-08-21T00:02:00Z","unix_seconds":1787270520,"height_m":2.8},
+    {"type":"low","utc":"2026-08-21T06:06:00Z","unix_seconds":1787292360,"height_m":1.5},
+    {"type":"high","utc":"2026-08-21T12:47:00Z","unix_seconds":1787316420,"height_m":2.9},
+    {"type":"low","utc":"2026-08-21T19:17:00Z","unix_seconds":1787339820,"height_m":1.7}
+  ]
+}

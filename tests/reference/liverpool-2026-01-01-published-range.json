@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "station": {
+    "id": "uk-liverpool-gladstone",
+    "name": "Liverpool (Gladstone Dock)",
+    "latitude": 53.449694,
+    "longitude": -3.018139
+  },
+  "reference": {
+    "kind": "published_astronomical_forecast",
+    "publisher": "UK National Tidal and Sea Level Facility",
+    "source_url": "https://ntslf.org/sites/ntslf/files/pdf/liverpool/Liverpool202601.pdf",
+    "source_title": "Liverpool Tidal Predictions January 2026",
+    "time_basis": "UTC/GMT",
+    "vertical_datum_id": "chart-datum",
+    "vertical_datum_name": "Liverpool Chart Datum",
+    "comparison_mode": "event_time_and_tidal_range",
+    "retrieved_utc": "2026-08-20",
+    "redistribution_note": "Small factual verification sample; consult the linked publication for the full table. Absolute model heights are not compared because TPXO model mean sea level and Chart Datum are different vertical datums."
+  },
+  "events": [
+    {"type": "low",  "utc": "2026-01-01T03:07:00Z", "unix_seconds": 1767236820, "height_m": 2.29},
+    {"type": "high", "utc": "2026-01-01T08:51:00Z", "unix_seconds": 1767257460, "height_m": 8.55},
+    {"type": "low",  "utc": "2026-01-01T15:42:00Z", "unix_seconds": 1767282120, "height_m": 2.24},
+    {"type": "high", "utc": "2026-01-01T21:17:00Z", "unix_seconds": 1767302220, "height_m": 8.84}
+  ]
+}
