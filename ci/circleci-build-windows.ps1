@@ -171,7 +171,7 @@ $checksums = foreach ($file in @($archive,$metadata)) {
 }
 $checksums | Set-Content -Encoding ascii (Join-Path $packageDir "checksums.txt")
 $xml = [xml](Get-Content -Raw $metadata.FullName)
-$version = $xml.plugin.version.Trim()
+$version = $xml.plugin.SelectSingleNode("version").InnerText.Trim()
 $result = [ordered]@{
     schema = "offlinetides-target-result-v1"
     target = "windows-x86"
