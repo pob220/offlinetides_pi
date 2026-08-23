@@ -635,8 +635,9 @@ void XTidalDialog::RefreshWaypoints() {
   waypoint_guids_.clear();
   int selected_index = wxNOT_FOUND;
   for (const auto& waypoint : plugin_.ListForecastWaypoints()) {
-    const wxString name =
-        waypoint.name.empty() ? "Unnamed waypoint" : waypoint.name;
+    const wxString name = waypoint.name.empty()
+                              ? wxString::FromUTF8("Unnamed waypoint")
+                              : waypoint.name;
     waypoint_->Append(wxString::Format("%s — %.5f°, %.5f°", name,
                                        waypoint.latitude, waypoint.longitude));
     waypoint_guids_.push_back(waypoint.guid);

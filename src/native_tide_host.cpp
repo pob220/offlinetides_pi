@@ -56,7 +56,7 @@ std::vector<HostTideStationInfoV1> NativeTideHost::Nearest(
   const int count = nearest_(latitude, longitude, maximum_distance_nm,
                              result.data(), maximum_results);
   if (count <= 0) return {};
-  result.resize(std::min(count, maximum_results));
+  result.resize((std::min)(count, maximum_results));
   return result;
 }
 

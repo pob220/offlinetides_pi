@@ -242,7 +242,9 @@ void xtidal_pi::SetForecastLocationSource(int selection) {
       if (dialog_) {
         dialog_->SetForecastPosition(forecast_position_label_);
         dialog_->ClearHeightCurve(
-            error.empty() ? "Select an OpenCPN waypoint or mark" : error);
+            error.empty() ? wxString::FromUTF8(
+                                "Select an OpenCPN waypoint or mark")
+                          : error);
       }
     }
   } else if (std::isfinite(manual_lat_) && std::isfinite(manual_lon_)) {
@@ -296,8 +298,9 @@ bool xtidal_pi::SelectForecastWaypoint(const wxString& guid, wxString* error) {
     return false;
   }
   selected_waypoint_guid_ = guid;
-  wxString label =
-      waypoint->m_MarkName.empty() ? "Unnamed waypoint" : waypoint->m_MarkName;
+  wxString label = waypoint->m_MarkName.empty()
+                       ? wxString::FromUTF8("Unnamed waypoint")
+                       : waypoint->m_MarkName;
   ApplyForecastPosition(waypoint->m_lat, waypoint->m_lon, label, true);
   SaveSettings();
   return true;
