@@ -64,6 +64,15 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(PluginSetup)
 include(PluginConfigure)
 
+# The host-side Flatpak configure pass only generates the extension manifest.
+# All dependencies and plugin targets are configured later inside the SDK.
+if(OCPN_FLATPAK_CONFIG)
+  include(PluginInstall)
+  include(PluginLocalization)
+  include(PluginPackage)
+  return()
+endif()
+
 set(XTIDAL_ENGINE_DIR
     "${CMAKE_CURRENT_SOURCE_DIR}/third_party/environmental-grib-generator"
     CACHE PATH "Path to the environmental GRIB/XTD engine repository")

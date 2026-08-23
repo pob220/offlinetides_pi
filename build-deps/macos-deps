@@ -4,5 +4,7 @@ jsoncpp
 jq
 libsodium
 netcdf
+ninja
+pkgconf
 wxwidgets@3.2
 zstd
