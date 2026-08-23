@@ -17,7 +17,7 @@ and a separate approval-gated publication workflow.
 The Alpha plugin binary and global operational data are published separately.
 After installing the plugin, download
 `offlinetides-global-data-1.0.0-alpha1.tar.gz` from the
-[OfflineTides Alpha package repository](https://cloudsmith.io/~pob220/repos/offlinetides-alpha/packages/),
+[OfflineTides Alpha package repository](https://cloudsmith.io/~pob220/repos/offlinetides-alpha-oss/packages/),
 verify its adjacent SHA-256 file, extract it, then use
 **Open .xtdt package...** in the forecast window. The public archive contains
 the self-contained `.xtdt`, manifest, checksums and field-use instructions;

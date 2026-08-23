@@ -102,7 +102,8 @@ External prerequisites, deliberately not stored in source:
 
 - the `pob220/offlinetides_pi` project followed by the CircleCI GitHub integration,
   with machine-executor builds enabled;
-- a public Cloudsmith raw repository named `pob220/offlinetides-alpha`;
+- an Open-Source GPL-3.0+ Cloudsmith raw repository named
+  `pob220/offlinetides-alpha-oss`;
 - an organization CircleCI context named `offlinetides-deployment`, restricted
   to this project and containing only `CLOUDSMITH_API_KEY`;
 - explicit human approval after inspecting all retained target evidence.

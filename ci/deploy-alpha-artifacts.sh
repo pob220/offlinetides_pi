@@ -16,7 +16,7 @@ test -n "${CLOUDSMITH_API_KEY:-}" || {
   exit 2
 }
 
-repo=${CLOUDSMITH_ALPHA_REPO:-pob220/offlinetides-alpha}
+repo=${CLOUDSMITH_ALPHA_REPO:-pob220/offlinetides-alpha-oss}
 artifact_root=${OFFLINETIDES_DEPLOY_ARTIFACT_ROOT:-artifacts}
 stage=$(mktemp -d)
 trap 'rm -rf "$stage"' EXIT HUP INT TERM

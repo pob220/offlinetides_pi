@@ -55,7 +55,7 @@ if ! grep -q "<target>${expected_target}</target>" "$metadata"; then
   echo "Generated metadata does not advertise expected target ${expected_target}" >&2
   exit 1
 fi
-if grep -q 'pob220/offlinetides-alpha' "$metadata"; then
+if grep -q 'pob220/offlinetides-alpha-oss' "$metadata"; then
   echo "Generated metadata must retain publication placeholders" >&2
   exit 1
 fi

@@ -27,7 +27,7 @@ set(PARENT "opencpn")
 
 set(PROD "prod")
 set(BETA "beta")
-set(ALPHA "alpha")
+set(ALPHA "alpha-oss")
 set(CLOUDSMITH_USER "pob220")
 set(CLOUDSMITH_BASE_REPOSITORY "offlinetides")
 set(PLUGIN_GIT_REPOSITORY "pob220/offlinetides_pi")
