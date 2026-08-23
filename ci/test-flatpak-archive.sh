@@ -9,7 +9,7 @@ target=$(sed -n \
   's:.*<target>[[:space:]]*\([^[:space:]<]*\)[[:space:]]*</target>.*:\1:p' \
   "$metadata")
 case "$target" in
-  flatpak-x86_64|flatpak-aarch64) ;;
+  flatpak-32-x86_64|flatpak-32-aarch64) ;;
   *) echo "Invalid OfflineTides Flatpak target: $target" >&2; exit 1 ;;
 esac
 
