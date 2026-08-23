@@ -149,5 +149,10 @@ runtime file, `libofflinetides_pi.so`. Its metadata identified OfflineTides
 1.0.2.0, OpenCPN API 1.21, Debian 12 x86_64 and GTK3. A separate GCC 16
 ASan/UBSan build also passed all six suites with fail-fast checks enabled;
 LeakSanitizer was disabled because it cannot operate under this managed
-environment's ptrace restrictions. The remote four-target CircleCI results
-remain the authority for Alpha-branch acceptance.
+environment's ptrace restrictions.
+
+The definitive Alpha candidate is public commit
+`2483ab116a983085e5dfcef47334ca1277f4e916`, qualified by CircleCI pipeline 22
+on 23 August 2026. All nine native build/package jobs passed. Linux native
+CTest suites passed; Windows and Flatpak remain build/package-qualified rather
+than GUI-runtime-qualified pending Alpha field testing.
