@@ -92,7 +92,8 @@ cp -f "$archive_source" "$metadata_source" "$package_dir/"
 (cd "$package_dir" && shasum -a 256 "$(basename "$archive_source")" \
   "$(basename "$metadata_source")" >checksums.txt)
 archive=$package_dir/$(basename "$archive_source")
-version=$(sed -n 's:.*<version>[[:space:]]*\([^<]*\)</version>.*:\1:p' "$metadata_source")
+version=$(sed -n 's:.*<version>[[:space:]]*\([^<]*\)</version>.*:\1:p' \
+  "$metadata_source" | tr -d '[:space:]')
 jq -n \
   --arg commit "$(git rev-parse HEAD)" \
   --arg version "$version" \

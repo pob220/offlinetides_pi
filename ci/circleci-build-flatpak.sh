@@ -44,7 +44,8 @@ cp -f "$archive_source" "$metadata_source" "$package_dir/"
 (cd "$package_dir" && sha256sum "$(basename "$archive_source")" \
   "$(basename "$metadata_source")" >checksums.txt)
 archive=$package_dir/$(basename "$archive_source")
-version=$(sed -n 's:.*<version>[[:space:]]*\([^<]*\)</version>.*:\1:p' "$metadata_source")
+version=$(sed -n 's:.*<version>[[:space:]]*\([^<]*\)</version>.*:\1:p' \
+  "$metadata_source" | tr -d '[:space:]')
 jq -n \
   --arg commit "$(git -C .. rev-parse HEAD)" \
   --arg target "flatpak${SDK_VER}-${BUILD_ARCH}" \

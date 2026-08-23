@@ -29,7 +29,9 @@ while IFS= read -r -d '' archive; do
   metadata=${pair[1]}
   target=$(sed -n 's:.*<target>[[:space:]]*\([^[:space:]<]*\)[[:space:]]*</target>.*:\1:p' "$metadata")
   target_version=$(sed -n 's:.*<target-version>[[:space:]]*\([^[:space:]<]*\)[[:space:]]*</target-version>.*:\1:p' "$metadata")
-  plugin_version=$(sed -n 's:.*<version>[[:space:]]*\([^[:space:]<]*\)[[:space:]]*</version>.*:\1:p' "$metadata")
+  plugin_version=$(sed -n \
+    's:.*<version>[[:space:]]*\([^<]*\)</version>.*:\1:p' "$metadata" | \
+    tr -d '[:space:]')
   test -n "$target"
   test -n "$target_version"
   [[ "$plugin_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
