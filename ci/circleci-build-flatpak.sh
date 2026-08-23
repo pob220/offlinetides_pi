@@ -31,6 +31,9 @@ cmake -DOCPN_TARGET="$OCPN_TARGET" \
 manifest=flatpak/org.opencpn.OpenCPN.Plugin.offlinetides.yaml
 grep -q 'url: file://' "$manifest"
 cmake --build . --target flatpak-build 2>&1 | tee "$log_dir/build.log"
+# Frontend2's inherited flatpak-pkg target makes this harmless directory
+# writable after packaging.  It is normally present in its legacy layout.
+mkdir -p ../build
 cmake --build . --target flatpak-pkg 2>&1 | tee "$log_dir/package.log"
 ../ci/test-flatpak-archive.sh . 2>&1 | tee "$log_dir/archive-validation.log"
 

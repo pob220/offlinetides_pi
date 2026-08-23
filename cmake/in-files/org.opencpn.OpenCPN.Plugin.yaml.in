@@ -14,6 +14,11 @@ cleanup:
   - /lib/*.la
   - /lib/cmake
   - /lib/pkgconfig
+  - /lib64/*.a
+  - /lib64/*.la
+  - /lib64/cmake
+  - /lib64/objects-*
+  - /lib64/pkgconfig
 
 modules:
 ${flatpak_extra_modules}
