@@ -1,0 +1,8 @@
+cmake
+gettext
+jsoncpp
+jq
+libsodium
+netcdf
+wxwidgets@3.2
+zstd

@@ -5,6 +5,8 @@ source_dir=$(cd "${1:-/src}" && pwd)
 work_dir=${2:-/work}
 test_build=${work_dir}/test-build
 package_build=${work_dir}/package-build
+runtime_prefix=${work_dir}/runtime-deps
+runtime_work=${work_dir}/runtime-deps-work
 stage_dir=${work_dir}/stage
 artifact_dir=${work_dir}/artifacts/${OCPN_TARGET:-linux}
 log_dir=${artifact_dir}/logs
@@ -31,10 +33,16 @@ ctest --test-dir "$test_build" --output-on-failure \
 
 # Package from a runtime-only tree. NetCDF and raw-model authoring code must
 # not become dependencies of the distributable OpenCPN plugin.
+"$source_dir/ci/build-runtime-deps-unix.sh" \
+  "$runtime_prefix" "$runtime_work" \
+  2>&1 | tee "$log_dir/runtime-dependencies.log"
+export PKG_CONFIG_PATH="${runtime_prefix}/lib/pkgconfig"
 cmake -S "$source_dir" -B "$package_build" -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=/usr/local \
+  -DCMAKE_PREFIX_PATH="$runtime_prefix" \
   -DBUILD_GTK3=ON \
+  -DOFFLINETIDES_STATIC_RUNTIME_DEPS=ON \
   -DXTIDAL_STANDALONE_API=ON \
   -DXTIDAL_BUILD_AUTHORING_TOOLS=OFF \
   -DOCPN_BUILD_TEST=OFF 2>&1 | tee "$log_dir/configure-package.log"

@@ -1,14 +1,40 @@
-# add flatpak-options args in here like this:
-#    - name: libusb
-#      config-opts:
-#          - --disable-shared
-#          - --enable-static
-#          - --disable-udev
-#          - --prefix=/app/extensions/${PACKAGE}
-#      sources:
-#          - type: archive
-#            url: https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.24/libusb-1.0.24.tar.bz2
-#            sha256: 7efd2685f7b327326dcfb85cee426d9b871fd70e22caa15bb68d595ce2a2b12a
-#      cleanup: ["/include", "/lib/*.a", "/lib/*.la", "/lib/pkgconfig"]
-#
-# be carefull about indents and naming.
+  - name: jsoncpp
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_INSTALL_PREFIX=/app/extensions/offlinetides
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+      - -DBUILD_SHARED_LIBS=OFF
+      - -DJSONCPP_WITH_TESTS=OFF
+      - -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF
+    sources:
+      - type: archive
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz
+        sha256: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
+
+  - name: zstd
+    buildsystem: cmake-ninja
+    subdir: build/cmake
+    builddir: true
+    config-opts:
+      - -DCMAKE_INSTALL_PREFIX=/app/extensions/offlinetides
+      - -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+      - -DZSTD_BUILD_SHARED=OFF
+      - -DZSTD_BUILD_STATIC=ON
+      - -DZSTD_BUILD_PROGRAMS=OFF
+      - -DZSTD_BUILD_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz
+        sha256: eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3
+
+  - name: libsodium
+    config-opts:
+      - --prefix=/app/extensions/offlinetides
+      - --disable-shared
+      - --enable-static
+      - --with-pic
+    sources:
+      - type: archive
+        url: https://download.libsodium.org/libsodium/releases/libsodium-1.0.20.tar.gz
+        sha256: ebb65ef6ca439333c2bb41a0c1990587288da07f6c7fd07cb3a18cc18d30ce19

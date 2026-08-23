@@ -32,9 +32,10 @@ jobs:
       image: {type: string}
       build_env: {type: string}
       dockerfile: {type: string, default: ci/Dockerfile.linux}
+      resource_class: {type: string, default: medium}
     machine:
       image: ubuntu-2404:current
-    resource_class: medium
+    resource_class: << parameters.resource_class >>
     environment:
       OCPN_TARGET: << parameters.target >>
       DOCKER_IMAGE: << parameters.image >>
@@ -54,6 +55,93 @@ jobs:
           command: ci/circleci-build-ubuntu-docker.sh
           no_output_timeout: 30m
       - retain-linux-evidence
+
+  flatpak:
+    parameters:
+      arch: {type: string}
+      resource_class: {type: string, default: medium}
+    machine:
+      image: ubuntu-2404:current
+    resource_class: << parameters.resource_class >>
+    environment:
+      OCPN_TARGET: flatpak
+      BUILD_ARCH: << parameters.arch >>
+      FLATPAK_BRANCH: stable
+      SDK_VER: "25.08"
+      WX_VER: "32"
+    steps:
+      - checkout
+      - run:
+          name: Initialise pinned dependencies
+          command: git submodule update --init --recursive
+      - run: chmod a+x ci/*.sh
+      - run:
+          name: Flatpak build and package qualification
+          command: ci/circleci-build-flatpak.sh
+          no_output_timeout: 45m
+      - retain-linux-evidence
+
+  windows-x86:
+    machine:
+      image: windows-server-2022-gui:current
+      shell: powershell.exe -ExecutionPolicy Bypass
+    resource_class: windows.medium
+    environment:
+      OCPN_TARGET: MSVC
+      WX_VER: "32"
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - offlinetides-windows-vcpkg-v1-{{ checksum "ci/windows-vcpkg-deps.txt" }}-{{ checksum "ci/vcpkg-triplets/x86-windows-release-static.cmake" }}
+            - offlinetides-windows-vcpkg-v1-
+      - run:
+          name: Native Windows x86 build and package qualification
+          command: .\ci\circleci-build-windows.ps1
+          no_output_timeout: 45m
+      - save_cache:
+          key: offlinetides-windows-vcpkg-v1-{{ checksum "ci/windows-vcpkg-deps.txt" }}-{{ checksum "ci/vcpkg-triplets/x86-windows-release-static.cmake" }}
+          paths:
+            - cache/vcpkg-binary
+      - store_artifacts:
+          path: artifacts
+      - persist_to_workspace:
+          root: .
+          paths: [artifacts]
+
+  macos-arm64:
+    macos:
+      xcode: 16.4.0
+    resource_class: m4pro.medium
+    environment:
+      CMAKE_BUILD_PARALLEL_LEVEL: "3"
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+    steps:
+      - checkout
+      - run:
+          name: Initialise pinned dependencies
+          command: git submodule update --init --recursive
+      - run: chmod a+x ci/*.sh
+      - run:
+          name: Native Apple-Silicon build, tests and package qualification
+          command: ci/circleci-build-macos.sh
+          no_output_timeout: 45m
+      - run:
+          name: Prepare JUnit results
+          when: always
+          command: |
+            rm -rf test-results
+            mkdir -p test-results
+            find artifacts -type f \
+              \( -name 'ctest.xml' -o -name '*-ctest.xml' \) \
+              -exec cp -f '{}' test-results/ \;
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: artifacts
+      - persist_to_workspace:
+          root: .
+          paths: [artifacts]
 
   deploy-alpha:
     docker:
@@ -90,6 +178,26 @@ workflows:
           target: bookworm
           image: debian:bookworm
           build_env: debian
+          filters: *validation-filters
+      - linux-catalogue:
+          name: debian12-arm64
+          target: bookworm-arm64
+          image: arm64v8/debian:bookworm
+          build_env: debian
+          resource_class: arm.medium
+          filters: *validation-filters
+      - flatpak:
+          name: flatpak25.08-x86_64
+          arch: x86_64
+          filters: *validation-filters
+      - flatpak:
+          name: flatpak25.08-aarch64
+          arch: aarch64
+          resource_class: arm.medium
+          filters: *validation-filters
+      - windows-x86:
+          filters: *validation-filters
+      - macos-arm64:
           filters: *validation-filters
       - linux-catalogue:
           name: ubuntu22.04-x86_64
@@ -137,6 +245,28 @@ workflows:
           image: ubuntu:24.04
           build_env: ubuntu
           filters: *alpha-only
+      - linux-catalogue:
+          name: release-debian12-arm64
+          target: bookworm-arm64
+          image: arm64v8/debian:bookworm
+          build_env: debian
+          resource_class: arm.medium
+          filters: *alpha-only
+      - flatpak:
+          name: release-flatpak25.08-x86_64
+          arch: x86_64
+          filters: *alpha-only
+      - flatpak:
+          name: release-flatpak25.08-aarch64
+          arch: aarch64
+          resource_class: arm.medium
+          filters: *alpha-only
+      - windows-x86:
+          name: release-windows-x86
+          filters: *alpha-only
+      - macos-arm64:
+          name: release-macos-arm64
+          filters: *alpha-only
       - hold-for-alpha-approval:
           type: approval
           requires:
@@ -144,6 +274,11 @@ workflows:
             - release-debian12-x86_64
             - release-ubuntu22.04-x86_64
             - release-ubuntu24.04-x86_64
+            - release-debian12-arm64
+            - release-flatpak25.08-x86_64
+            - release-flatpak25.08-aarch64
+            - release-windows-x86
+            - release-macos-arm64
           filters: *alpha-only
       - deploy-alpha:
           context: offlinetides-deployment

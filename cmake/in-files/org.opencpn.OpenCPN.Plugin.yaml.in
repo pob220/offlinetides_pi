@@ -8,7 +8,15 @@ appstream-compose: false
 ${finish_args}
 ${build_options}
 
+cleanup:
+  - /include
+  - /lib/*.a
+  - /lib/*.la
+  - /lib/cmake
+  - /lib/pkgconfig
+
 modules:
+${flatpak_extra_modules}
   - name: ${PACKAGE}
     no-autogen: true
     buildsystem: cmake
@@ -16,12 +24,17 @@ modules:
     config-opts:
         - -DCMAKE_INSTALL_PREFIX=/app/extensions/${PACKAGE}
         - -DOCPN_FLATPAK_BUILD=ON
-        - -DXWEATHER_ROUTING_STANDALONE_API=ON
+        - -DOFFLINETIDES_STATIC_RUNTIME_DEPS=ON
+        - -DXTIDAL_STANDALONE_API=ON
+        - -DXTIDAL_BUILD_AUTHORING_TOOLS=OFF
         - -DOCPN_BUILD_TEST=OFF
         - -DOCPN_TARGET=${OCPN_TARGET}
         - -DSDK_VER=${SDK_VER}
         - -DWX_VER=${WX_VER}
     build-options:
+        env:
+          PKG_CONFIG_PATH: /app/extensions/${PACKAGE}/lib/pkgconfig
+          CMAKE_PREFIX_PATH: /app/extensions/${PACKAGE}
         cflags: -fPIC
         cxxflags: -fPIC -DFLATPAK
         strip: true
@@ -32,4 +45,3 @@ modules:
          # a second unauthenticated network clone inside flatpak-builder.
          url: file://${PROJECT_SOURCE_DIR}
          ${GIT_BRANCH_OR_TAG}: ${GIT_REPOSITORY_ITEM}
-${flatpak_extra_modules}

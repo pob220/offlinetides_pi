@@ -43,6 +43,8 @@ option(XTIDAL_STANDALONE_API
        "Build against the pinned OpenCPN API submodule" OFF)
 option(XTIDAL_BUILD_AUTHORING_TOOLS
        "Build offline harmonic authoring tools" "${OCPN_BUILD_TEST}")
+option(OFFLINETIDES_STATIC_RUNTIME_DEPS
+       "Statically link the small OfflineTides runtime dependencies" OFF)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -70,12 +72,58 @@ if(NOT EXISTS "${XTIDAL_ENGINE_DIR}/include/environmental_grib/xtd_package.h")
           "Missing environmental-grib-generator submodule. Run: git submodule update --init --recursive")
 endif()
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(JSONCPP REQUIRED IMPORTED_TARGET jsoncpp)
-pkg_check_modules(SODIUM REQUIRED IMPORTED_TARGET libsodium)
-pkg_check_modules(ZSTD REQUIRED IMPORTED_TARGET libzstd)
+if(WIN32)
+  find_package(jsoncpp CONFIG REQUIRED)
+  find_package(unofficial-sodium CONFIG REQUIRED)
+  find_package(zstd CONFIG REQUIRED)
+  set(XTIDAL_JSONCPP_TARGET JsonCpp::JsonCpp)
+  set(XTIDAL_SODIUM_TARGET unofficial-sodium::sodium)
+  set(XTIDAL_ZSTD_TARGET zstd::libzstd)
+else()
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(JSONCPP REQUIRED IMPORTED_TARGET jsoncpp)
+  pkg_check_modules(SODIUM REQUIRED IMPORTED_TARGET libsodium)
+  pkg_check_modules(ZSTD REQUIRED IMPORTED_TARGET libzstd)
+  set(XTIDAL_JSONCPP_TARGET PkgConfig::JSONCPP)
+  set(XTIDAL_SODIUM_TARGET PkgConfig::SODIUM)
+  set(XTIDAL_ZSTD_TARGET PkgConfig::ZSTD)
+endif()
 if(XTIDAL_BUILD_AUTHORING_TOOLS)
+  find_package(PkgConfig REQUIRED)
   pkg_check_modules(NETCDF REQUIRED IMPORTED_TARGET netcdf)
+endif()
+
+if(OFFLINETIDES_STATIC_RUNTIME_DEPS AND NOT WIN32)
+  function(xtidal_import_static target prefix)
+    set(names ${ARGN})
+    set(saved_suffixes ${CMAKE_FIND_LIBRARY_SUFFIXES})
+    if(WIN32)
+      set(CMAKE_FIND_LIBRARY_SUFFIXES .lib)
+    else()
+      set(CMAKE_FIND_LIBRARY_SUFFIXES .a)
+    endif()
+    find_library(static_library NAMES ${names}
+      HINTS ${${prefix}_LIBRARY_DIRS} REQUIRED)
+    set(CMAKE_FIND_LIBRARY_SUFFIXES ${saved_suffixes})
+    add_library(${target} UNKNOWN IMPORTED)
+    set_target_properties(${target} PROPERTIES
+      IMPORTED_LOCATION "${static_library}"
+      INTERFACE_INCLUDE_DIRECTORIES "${${prefix}_INCLUDE_DIRS}"
+      INTERFACE_LINK_OPTIONS "${${prefix}_STATIC_LDFLAGS_OTHER}")
+    unset(static_library CACHE)
+  endfunction()
+
+  xtidal_import_static(OfflineTidesJsonCpp JSONCPP jsoncpp)
+  xtidal_import_static(OfflineTidesSodium SODIUM sodium libsodium)
+  xtidal_import_static(OfflineTidesZstd ZSTD zstd zstd_static libzstd)
+  if(NOT WIN32)
+    find_package(Threads REQUIRED)
+    set_property(TARGET OfflineTidesSodium APPEND PROPERTY
+      INTERFACE_LINK_LIBRARIES Threads::Threads)
+  endif()
+  set(XTIDAL_JSONCPP_TARGET OfflineTidesJsonCpp)
+  set(XTIDAL_SODIUM_TARGET OfflineTidesSodium)
+  set(XTIDAL_ZSTD_TARGET OfflineTidesZstd)
 endif()
 
 # Runtime-only XTD reader. Raw model import, network providers and GRIB
@@ -94,7 +142,7 @@ target_compile_definitions(xtidal_xtd_runtime PRIVATE
 target_include_directories(xtidal_xtd_runtime PUBLIC
   ${XTIDAL_ENGINE_DIR}/include)
 target_link_libraries(xtidal_xtd_runtime PUBLIC
-  PkgConfig::JSONCPP PkgConfig::SODIUM PkgConfig::ZSTD)
+  ${XTIDAL_JSONCPP_TARGET} ${XTIDAL_SODIUM_TARGET} ${XTIDAL_ZSTD_TARGET})
 target_compile_options(xtidal_xtd_runtime PRIVATE
   $<$<CXX_COMPILER_ID:GNU,Clang>:-Wall;-Wextra;-Wpedantic;-Wno-missing-field-initializers>)
 
@@ -107,7 +155,7 @@ set_target_properties(xtidal_prediction PROPERTIES
   POSITION_INDEPENDENT_CODE ON)
 target_include_directories(xtidal_prediction PUBLIC src)
 target_link_libraries(xtidal_prediction PUBLIC
-  xtidal_xtd_runtime PkgConfig::JSONCPP)
+  xtidal_xtd_runtime ${XTIDAL_JSONCPP_TARGET})
 
 if(XTIDAL_BUILD_AUTHORING_TOOLS)
   add_library(xtidal_height_authoring STATIC
@@ -222,28 +270,28 @@ if(OCPN_BUILD_TEST)
   target_link_libraries(xtidal_make_fixture PRIVATE xtidal_xtd_runtime)
   xtidal_add_tool(xtidal_validate_height tests/validate_height.cpp)
   target_link_libraries(xtidal_validate_height PRIVATE
-    xtidal_prediction PkgConfig::JSONCPP)
+    xtidal_prediction ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_build_station_xtd tests/build_station_xtd.cpp
     ${XTIDAL_ENGINE_DIR}/tests/xtd_test_support.cpp)
   target_link_libraries(xtidal_build_station_xtd PRIVATE
-    xtidal_prediction PkgConfig::JSONCPP)
+    xtidal_prediction ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_build_corrected_xtd tests/build_corrected_xtd.cpp
     ${XTIDAL_ENGINE_DIR}/tests/xtd_test_support.cpp)
   target_link_libraries(xtidal_build_corrected_xtd PRIVATE
-    xtidal_height_authoring PkgConfig::JSONCPP)
+    xtidal_height_authoring ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_calibrate_gains tests/calibrate_station_gains.cpp)
   target_link_libraries(xtidal_calibrate_gains PRIVATE
-    xtidal_prediction xtidal_height_authoring PkgConfig::JSONCPP)
+    xtidal_prediction xtidal_height_authoring ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_build_ticon_xtdt tests/build_ticon_xtdt.cpp
     ${XTIDAL_ENGINE_DIR}/tests/xtd_test_support.cpp)
   target_link_libraries(xtidal_build_ticon_xtdt PRIVATE
-    xtidal_height_authoring PkgConfig::JSONCPP)
+    xtidal_height_authoring ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_inspect_height_point tests/inspect_height_point.cpp)
   target_link_libraries(xtidal_inspect_height_point PRIVATE
-    xtidal_xtd_runtime PkgConfig::JSONCPP)
+    xtidal_xtd_runtime ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_verify_data_release tests/verify_data_release.cpp)
   target_link_libraries(xtidal_verify_data_release PRIVATE
-    xtidal_xtd_runtime PkgConfig::JSONCPP)
+    xtidal_xtd_runtime ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_build_ticon_station_xtdt
     tests/build_ticon_station_xtdt.cpp
     ${XTIDAL_ENGINE_DIR}/tests/xtd_test_support.cpp)
@@ -252,11 +300,11 @@ if(OCPN_BUILD_TEST)
   xtidal_add_tool(xtidal_evaluate_station_harmonics
     tests/evaluate_station_harmonics.cpp)
   target_link_libraries(xtidal_evaluate_station_harmonics PRIVATE
-    xtidal_height_authoring PkgConfig::JSONCPP)
+    xtidal_height_authoring ${XTIDAL_JSONCPP_TARGET})
   xtidal_add_tool(xtidal_model_height_author tests/eot20_height_author.cpp
     ${XTIDAL_ENGINE_DIR}/tests/xtd_test_support.cpp)
   target_link_libraries(xtidal_model_height_author PRIVATE
-    xtidal_height_authoring PkgConfig::JSONCPP)
+    xtidal_height_authoring ${XTIDAL_JSONCPP_TARGET})
 endif()
 
 include(PluginInstall)

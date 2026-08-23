@@ -1,6 +1,6 @@
 # OfflineTides Alpha rebuild and publication plan
 
-Date: 22 August 2026
+Date: 23 August 2026
 
 ## Scope of the first publication pass
 
@@ -9,8 +9,9 @@ The public product and OpenCPN package identity is `OfflineTides` /
 `pob220/offlinetides_pi`; generated catalogue metadata, retained evidence and
 the OpenCPN Alpha submission must all use this identity.
 
-The first Alpha matrix is intentionally limited to native x86_64 Linux targets
-which the project can build and package honestly:
+The initial Alpha publication used four native x86_64 Linux targets. The next
+candidate expands this using genuine target executors and the same packaging
+boundary:
 
 | Target | Build image | Evidence class |
 | --- | --- | --- |
@@ -18,13 +19,17 @@ which the project can build and package honestly:
 | Debian 13 / Trixie | `debian:trixie` | build, tests, staged install, package |
 | Ubuntu 22.04 / Jammy | `ubuntu:22.04` plus the OpenCPN PPA | build, tests, staged install, package |
 | Ubuntu 24.04 / Noble | `ubuntu:24.04` | build, tests, staged install, package |
+| Debian 12 ARM64 | native CircleCI ARM machine | build, tests, staged install, package |
+| Flatpak 25.08 x86_64 | native x86_64 machine and Freedesktop SDK | extension build and package inspection |
+| Flatpak 25.08 aarch64 | native ARM machine and Freedesktop SDK | extension build and package inspection |
+| Windows x86 | Windows Server 2022 / Visual Studio 2022 | native OpenCPN ABI build, staged install and PE dependency inspection |
+| macOS ARM64 | Apple Silicon / Xcode 16.4 | build, tests, staged install and Mach-O dependency inspection |
 
 These are `build-and-package-only` results until the resulting archive is
 installed into an isolated stock OpenCPN runtime. A successful compiler job is
-not described as GUI or runtime qualification. Native ARM, Flatpak, Windows
-and macOS jobs will be added only with genuine executors and platform-specific
-package/runtime tests; an x86_64 cross-build will not be labelled as another
-platform.
+not described as GUI or runtime qualification. The ARM, Flatpak, Windows and
+macOS jobs are native rather than cross-builds, and their structured evidence
+retains this distinction.
 
 ## Rebuild lessons adopted from xGRIB and xWeatherRouting
 
@@ -56,6 +61,9 @@ platform.
     separately authenticated, self-contained data product with a privately
     retained authoring record; raw source-model inputs are neither runtime
     dependencies nor redistributable plugin content.
+11. Link JSONCPP, libsodium and zstd statically into release plugins. The
+    archive gate inspects ELF, PE or Mach-O dependencies and rejects a package
+    which assumes these libraries are installed on the user's host.
 
 The first data product is
 `offlinetides-global-data-1.0.0-alpha1.tar.gz`. It contains the authenticated
@@ -107,7 +115,9 @@ archive/XML pairs. Publication is not triggered by a normal push or tag.
 
 Before approval:
 
-- all four clean Linux jobs pass the complete CTest suite;
+- all five clean native Linux jobs pass the complete CTest suite;
+- both Flatpak architectures, Windows x86 and macOS ARM64 pass their native
+  build, packaging, metadata and dependency gates;
 - each staged tree contains exactly one `libofflinetides_pi.so`;
 - each archive has one unambiguous metadata partner and valid API 1.21/source
   identity;

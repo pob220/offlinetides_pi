@@ -24,8 +24,9 @@ mapfile -t staged_plugins < <(
 )
 test "${#staged_plugins[@]}" -eq 1
 plugin=${staged_plugins[0]}
-if readelf -d "$plugin" | grep -Eqi 'NEEDED.*(netcdf|hdf5)'; then
-  echo "Runtime plugin unexpectedly links an authoring-data library" >&2
+if readelf -d "$plugin" | grep -Eqi \
+    'NEEDED.*(netcdf|hdf5|jsoncpp|sodium|zstd)'; then
+  echo "Runtime plugin unexpectedly links an unbundled data library" >&2
   exit 1
 fi
 strings "$plugin" >"$strings_file"
@@ -44,6 +45,7 @@ case "${OCPN_TARGET:-}" in
   noble) expected_target=ubuntu-gtk3-x86_64 ;;
   jammy) expected_target=ubuntu-wx32-x86_64 ;;
   trixie|bookworm) expected_target=debian-x86_64 ;;
+  bookworm-arm64) expected_target=debian-arm64 ;;
   *)
     echo "No expected OpenCPN ABI target is defined for ${OCPN_TARGET:-unset}" >&2
     exit 1

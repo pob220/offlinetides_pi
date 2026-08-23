@@ -8,6 +8,7 @@ apt-get install -y --no-install-recommends \
   build-essential \
   ca-certificates \
   cmake \
+  curl \
   gettext \
   git \
   jq \

@@ -1,0 +1,5 @@
+bzip2
+jsoncpp
+libsodium
+zlib
+zstd
