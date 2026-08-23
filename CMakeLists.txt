@@ -67,6 +67,7 @@ include(PluginConfigure)
 # The host-side Flatpak configure pass only generates the extension manifest.
 # All dependencies and plugin targets are configured later inside the SDK.
 if(OCPN_FLATPAK_CONFIG)
+  target_sources(${PACKAGE_NAME} PRIVATE src/xtidal_pi.cpp)
   include(PluginInstall)
   include(PluginLocalization)
   include(PluginPackage)

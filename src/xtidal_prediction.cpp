@@ -1,11 +1,12 @@
 #include "xtidal_prediction.h"
 
 #include <algorithm>
-#include <charconv>
 #include <cctype>
 #include <cmath>
 #include <cstdio>
 #include <limits>
+#include <locale>
+#include <sstream>
 #include <stdexcept>
 
 #include "environmental_grib/model.h"
@@ -119,11 +120,10 @@ double ParseCoordinate(const std::string& input, bool latitude) {
   }
 
   double value{};
-  const char* first = text.data();
-  const char* last = text.data() + text.size();
-  if (first != last && *first == '+') ++first;
-  const auto parsed = std::from_chars(first, last, value);
-  if (parsed.ec != std::errc{} || parsed.ptr != last || !std::isfinite(value))
+  std::istringstream parser{text};
+  parser.imbue(std::locale::classic());
+  parser >> value;
+  if (parser.fail() || !parser.eof() || !std::isfinite(value))
     throw std::invalid_argument("coordinate is not a finite decimal number");
 
   if (hemisphere != '\0') {
