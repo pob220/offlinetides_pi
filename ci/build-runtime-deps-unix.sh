@@ -43,7 +43,7 @@ download \
   "https://github.com/facebook/zstd/releases/download/v${zstd_version}/zstd-${zstd_version}.tar.gz" \
   "$zstd_archive" "$zstd_sha"
 download \
-  "https://download.libsodium.org/libsodium/releases/libsodium-${libsodium_version}.tar.gz" \
+  "https://github.com/jedisct1/libsodium/releases/download/${libsodium_version}-RELEASE/libsodium-${libsodium_version}.tar.gz" \
   "$libsodium_archive" "$libsodium_sha"
 
 mkdir -p "$work/src/jsoncpp" "$work/src/zstd" "$work/src/libsodium"
